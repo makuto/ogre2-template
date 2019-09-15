@@ -1,0 +1,8 @@
+*.glsl
+hlmsDisk*
+*.cache
+*.o
+*.log
+ogre_test
+ogre.cfg
+Ogre/

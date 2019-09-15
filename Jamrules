@@ -1,0 +1,98 @@
+##
+## Compilation
+##
+
+C++ = clang++ ;
+LINK = clang++ ;
+
+# If I was building a library, these would be useful
+# LINKFLAGS = -shared ;
+# if $(UNIX)      { SUFSHR = .so ; }
+# else if $(NT)   { SUFSHR = .dll ; }
+		
+## Compiler arguments
+
+# Arguments used on all projects, regardless of any variables
+# BT_USE_DOUBLE_PRECISION solves the Dantzig LCP missing definition
+# TODO Only put debug mode if it's debug
+C++FLAGS = -std=c++11 -Wall -Wextra -Wno-unused-parameter -g -DOGRE_DEBUG_MODE=0 ;
+
+HDRS = Ogre/ogre/OgreMain/include
+Ogre/ogre/Components/Hlms/Common/include
+Ogre/ogre/Components/Hlms/Pbs/include
+Ogre/ogre/Components/Hlms/Unlit/include
+Ogre/ogre/build/Release/include
+# Ogre overlay
+Ogre/ogre/Components/Overlay/include
+
+# TODO This should eventually be stripped out
+Ogre/ogre/Samples/2.0/Common/include
+
+/usr/include/SDL2
+;
+
+if $(DEBUG_BUILD)
+{ BULLET3_BUILD_DIR = bullet3/build_cmake_debug ; }
+else
+{ BULLET3_BUILD_DIR = bullet3/build_cmake ; }
+
+OPTIM = -O0 ;
+
+##
+## Linking
+##
+
+LINKLIBS =
+# Standard
+-lpthread -ldl
+
+# Ogre
+-LOgre/ogre/build/Release/lib
+-lOgreHlmsPbs
+-lOgreHlmsUnlit
+-lOgreMain
+
+# Ogre 2D overlays
+-lOgreOverlay
+
+# TODO This should eventually be stripped out
+-lOgreSamplesCommon
+
+-lSDL2
+;
+
+# LINKFLAGS = -Wl,-rpath,. ;
+
+# TODO: Copy libs to better directory, or static link?
+LINKFLAGS = -g
+-Wl,-rpath,.:Ogre/ogre/build/Release/lib ;
+
+##
+## Jam stuff
+##
+
+# Fix for unnecessary rebuilding any Jam project
+KEEPOBJS = true ; # This doesn't actually fix anything, though it seems like it should
+NOARSCAN = true ; # This actually fixes the problem
+#AR = ar rUu ; # I was thinking maybe the AR command was wrong (always outputting deterministically)
+               # It doesn't seem like this is the problem though
+AR = ar cr ;
+
+# Cross compilation
+# E.g.
+# jam -j4 -q -sCROSS_COMPILE_WINDOWS=true
+# if $(CROSS_COMPILE_WINDOWS)
+# {
+# 	CC = x86_64-w64-mingw32-gcc ;
+# 	LINK = x86_64-w64-mingw32-gcc ;
+# 	AR = x86_64-w64-mingw32-ar ;
+# 	SUFSHR = .dll ;
+# }
+
+# Some helpful Jam commands
+# -q        : stop on failed target
+# -jN       : use N cores
+# -sVAR=VAL : Set VAR to VAL. Note that setting WINDOWS=false is the same as setting UNREAL=true,
+#              frustratingly
+# -dx       : print commands being used
+# -n        : don't actually run commands

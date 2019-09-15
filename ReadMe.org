@@ -1,0 +1,20 @@
+* Ogre test
+
+** Install Ogre 2
+[[https://github.com/OGRECave/ogre-next][Latest instructions straight from Ogre]]
+
+Install dependencies:
+
+#+BEGIN_SRC sh
+sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev doxygen graphviz python-clang libsdl2-dev cmake ninja-build mercurial
+#+END_SRC
+
+Run clone and build script:
+
+- [[https://github.com/OGRECave/ogre-next/blob/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][Clone and Build script]]
+- [[https://raw.githubusercontent.com/OGRECave/ogre-next/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][Direct link]]
+
+** Ogre project setup
+[[https://ogrecave.github.io/ogre/api/2.1/_using_ogre_in_your_app.html#UsingOgreInYourAppOverview][Wiki]] I followed to get the Jamrules setup.
+
+To replicate for another project, run ~CopyOgreDataFiles.sh~.
