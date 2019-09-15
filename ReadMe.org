@@ -1,4 +1,7 @@
-* Ogre test
+* Ogre 2 Template
+A default setup for Ogre 2 that I'm satisfied with. For my own reference more than anyone else's.
+
+I don't like CMake, so I set up Jamrules for compiling with jam.
 
 ** Install Ogre 2
 [[https://github.com/OGRECave/ogre-next][Latest instructions straight from Ogre]]
@@ -17,4 +20,4 @@ Run clone and build script:
 ** Ogre project setup
 [[https://ogrecave.github.io/ogre/api/2.1/_using_ogre_in_your_app.html#UsingOgreInYourAppOverview][Wiki]] I followed to get the Jamrules setup.
 
-To replicate for another project, run ~CopyOgreDataFiles.sh~.
+To replicate for another project, run ~SetupOgreFromSample.sh~.
