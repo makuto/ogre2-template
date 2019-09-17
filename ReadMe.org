@@ -14,10 +14,29 @@ sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev
 
 Run clone and build script:
 
-- [[https://github.com/OGRECave/ogre-next/blob/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][Clone and Build script]]
-- [[https://raw.githubusercontent.com/OGRECave/ogre-next/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][Direct link]]
+#+BEGIN_SRC sh
+./CloneBuildOgre.sh
+#+END_SRC
+
+The latest version of that script can be found [[https://github.com/OGRECave/ogre-next/blob/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][here]] ([[https://raw.githubusercontent.com/OGRECave/ogre-next/master/Scripts/BuildScripts/output/build_ogre_linux_c%2B%2Blatest.sh][Direct link]]). If my copy doesn't work, you should use Ogre 2's copy.
+
+That script will get Ogre and compile it in both Debug and Release modes.
 
 ** Ogre project setup
-[[https://ogrecave.github.io/ogre/api/2.1/_using_ogre_in_your_app.html#UsingOgreInYourAppOverview][Wiki]] I followed to get the Jamrules setup.
+[[https://ogrecave.github.io/ogre/api/2.1/_using_ogre_in_your_app.html#UsingOgreInYourAppOverview][Wiki]] I followed to get the Jamrules setup for an empty project.
+
+The empty project is copied from Tutorial06_Multithreading in Ogre's samples.
 
 To replicate for another project, run ~SetupOgreFromSample.sh~.
+
+** Build the template
+Install jam:
+
+#+BEGIN_SRC sh
+sudo apt install jam
+#+END_SRC
+
+Build the template (~ogre_test~ executable):
+#+BEGIN_SRC sh
+jam -j4
+#+END_SRC
