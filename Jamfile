@@ -1,6 +1,7 @@
 SubDir . ;
 
 Main ogre_test :
+src/BaseGameState.cpp
 src/GraphicsGameState.cpp
 src/LogicGameState.cpp
 src/OgreMain.cpp

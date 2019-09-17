@@ -1,33 +1,35 @@
-
-#ifndef _Demo_MyGameState_H_
-#define _Demo_MyGameState_H_
+#pragma once
 
 #include "OgrePrerequisites.h"
-#include "TutorialGameState.h"
+#include "GameState.h"
 
 namespace Demo
 {
-    class LogicSystem;
-    struct GameEntity;
-    struct MovableObjectDefinition;
+class LogicSystem;
+struct GameEntity;
+struct MovableObjectDefinition;
+}  // namespace Demo
 
-    class LogicGameState : public GameState
-    {
-        float               mDisplacement;
-        GameEntity              *mCubeEntity;
-        MovableObjectDefinition *mCubeMoDef;
+namespace Mogre
+{
+class LogicGameState : public Demo::GameState
+{
+	float mDisplacement;
+	Demo::GameEntity* mCubeEntity;
+	Demo::MovableObjectDefinition* mCubeMoDef;
 
-        LogicSystem         *mLogicSystem;
+	Demo::LogicSystem* mLogicSystem;
 
-    public:
-        LogicGameState();
-        ~LogicGameState();
+public:
+	LogicGameState();
+	~LogicGameState();
 
-        void _notifyLogicSystem( LogicSystem *logicSystem )     { mLogicSystem = logicSystem; }
+	void _notifyLogicSystem(Demo::LogicSystem* logicSystem)
+	{
+		mLogicSystem = logicSystem;
+	}
 
-        virtual void createScene01(void);
-        virtual void update( float timeSinceLast );
-    };
-}
-
-#endif
+	virtual void createScene01(void);
+	virtual void update(float timeSinceLast);
+};
+}  // namespace Mogre

@@ -1,29 +1,25 @@
-
-#ifndef _Demo_GraphicsGameState_H_
-#define _Demo_GraphicsGameState_H_
+#pragma once
 
 #include "OgrePrerequisites.h"
-#include "TutorialGameState.h"
+#include "BaseGameState.h"
 
 #include "OgreVector3.h"
 
-namespace Demo
+namespace Mogre
 {
-    class GraphicsSystem;
+class GraphicsSystem;
 
-    class GraphicsGameState : public TutorialGameState
-    {
-        bool        mEnableInterpolation;
+class GraphicsGameState : public BaseGameState
+{
+	bool mEnableInterpolation;
 
-        virtual void generateDebugText( float timeSinceLast, Ogre::String &outText );
+	virtual void generateDebugText(float timeSinceLast, Ogre::String& outText);
 
-    public:
-        GraphicsGameState( const Ogre::String &helpDescription );
+public:
+	GraphicsGameState();
 
-        virtual void update( float timeSinceLast );
+	virtual void update(float timeSinceLast);
 
-        virtual void keyReleased( const SDL_KeyboardEvent &arg );
-    };
-}
-
-#endif
+	virtual void keyReleased(const SDL_KeyboardEvent& arg);
+};
+}  // namespace Mogre

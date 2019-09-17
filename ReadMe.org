@@ -25,7 +25,7 @@ That script will get Ogre and compile it in both Debug and Release modes.
 ** Ogre project setup
 [[https://ogrecave.github.io/ogre/api/2.1/_using_ogre_in_your_app.html#UsingOgreInYourAppOverview][Wiki]] I followed to get the Jamrules setup for an empty project.
 
-The empty project is copied from Tutorial06_Multithreading in Ogre's samples.
+The empty project is copied from [[file:/home/macoy/Development/code/repositories/ogre2-template/Ogre/ogre/Samples/2.0/Tutorials/Tutorial06_Multithreading/Tutorial06_Multithreading.cpp][Tutorial06_Multithreading]] in Ogre's samples.
 
 To replicate for another project, run ~SetupOgreFromSample.sh~.
 
