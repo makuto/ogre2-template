@@ -41,3 +41,9 @@ cmake -D OGRE_USE_BOOST=0 -D OGRE_CONFIG_THREAD_PROVIDER=0 -D OGRE_CONFIG_THREAD
 ninja
 
 echo "Done!"
+
+# Macoy's additions
+# Install ogre locally to build Gltf
+cd Ogre/ogre/build/Release
+# export DESTDIR="OgreInstall_Release" && ninja -j4 install
+export DESTDIR="$HOME/Ogre/LocalInstall" && ninja -j4 install

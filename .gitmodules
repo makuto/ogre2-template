@@ -1,0 +1,3 @@
+[submodule "Ogre_glTF"]
+	path = Ogre_glTF
+	url = https://github.com/Ybalrid/Ogre_glTF
