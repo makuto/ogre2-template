@@ -12,6 +12,7 @@ struct MovableObjectDefinition;
 
 namespace Mogre
 {
+
 class LogicGameState : public Demo::GameState
 {
 	float mDisplacement;

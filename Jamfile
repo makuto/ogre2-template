@@ -1,13 +1,18 @@
 SubDir . ;
 
 Main ogre_test :
-src/BaseGameState.cpp
-src/GraphicsGameState.cpp
-src/LogicGameState.cpp
 src/OgreMain.cpp
 ;
 
-# LinkLibraries spargus_vehicle_prototype : libBase20 ;
+Library libMogre :
+src/MogreCore.cpp
+src/MogreInterface.cpp
+src/BaseGameState.cpp
+src/GraphicsGameState.cpp
+src/LogicGameState.cpp
+;
+
+LinkLibraries ogre_test : libMogre ;
 
 # SubInclude . base2.0 ;
 

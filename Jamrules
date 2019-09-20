@@ -17,7 +17,9 @@ LINK = clang++ ;
 # TODO Only put debug mode if it's debug
 C++FLAGS = -std=c++11 -Wall -Wextra -Wno-unused-parameter -g -DOGRE_DEBUG_MODE=0 ;
 
-HDRS = Ogre/ogre/OgreMain/include
+HDRS =
+include
+Ogre/ogre/OgreMain/include
 Ogre/ogre/Components/Hlms/Common/include
 Ogre/ogre/Components/Hlms/Pbs/include
 Ogre/ogre/Components/Hlms/Unlit/include
