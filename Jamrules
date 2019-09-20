@@ -29,6 +29,8 @@ Ogre/ogre/Components/Overlay/include
 Ogre/ogre/Samples/2.0/Common/include
 
 /usr/include/SDL2
+
+Ogre_glTF/include
 ;
 
 if $(DEBUG_BUILD)
@@ -59,13 +61,17 @@ LINKLIBS =
 -lOgreSamplesCommon
 
 -lSDL2
+
+# Gltf support
+-Lbuild_ogre_gltf
+-lOgre_glTF
 ;
 
 # LINKFLAGS = -Wl,-rpath,. ;
 
 # TODO: Copy libs to better directory, or static link?
 LINKFLAGS = -g
--Wl,-rpath,.:Ogre/ogre/build/Release/lib ;
+-Wl,-rpath,.:build_ogre_gltf:Ogre/ogre/build/Release/lib ;
 
 ##
 ## Jam stuff

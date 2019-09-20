@@ -13,6 +13,8 @@
 #include "Threading/OgreBarrier.h"
 #include "Threading/OgreThreads.h"
 
+#include "Ogre_glTF.hpp"
+
 #include <iostream>
 
 extern const double cFrametime;
@@ -85,8 +87,22 @@ unsigned long renderThreadApp(Ogre::ThreadHandle* threadHandle)
 		graphicsSystem->deinitialize();
 		return 0;  // User cancelled config
 	}
-
+	
 	graphicsSystem->createScene01();
+
+	// gltf test
+	{
+		Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
+		    "Ogre_glTF/Media/gltfFiles.zip", "Zip");
+		Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups(true);
+		auto gltf = new Ogre_glTF::glTFLoader();
+		Ogre::SceneNode* objectNode = nullptr;
+		auto adapter = gltf->loadFromFileSystem("Ogre_glTF/Media/damagedHelmet/damagedHelmet.gltf");
+		Ogre::Root* root = graphicsSystem->getRoot();
+		Ogre::SceneManager* scnMgr = root->getSceneManager("ExampleSMInstance");
+		objectNode = adapter.getFirstSceneNode(scnMgr);
+	}
+
 	barrier->sync();
 
 	graphicsSystem->createScene02();
