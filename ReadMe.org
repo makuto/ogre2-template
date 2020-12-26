@@ -1,3 +1,6 @@
+* UPDATE
+Do not use this repository. Use [[https://github.com/makuto/ogre-start-project][ogre-start-project]] instead. It is a much cleaner, easier setup.
+
 * Ogre 2 Template
 A default setup for Ogre 2 that I'm satisfied with. For my own reference more than anyone else's.
 
